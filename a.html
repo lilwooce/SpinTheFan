@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Spin The Fan</title>
+        <link rel="stylesheet" type="text/css" href="./css/main.css">
+        <script src="./js/preload.js?v=1.01"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    </head>
+    <body class="container">
+        <div class="container">
+          <div class="d-flex">
+            <div class="game">
+              <div id="fan"></div>
+              <p>Use the right arrow key to increase the speed of the fan</p>
+              <p>Press spacebar to start the timer</p>
+              <img src="images/Rarrow.png" alt="rightarrow" width="50" height="60">
+              <div id="speedometer">0 MPH</div>
+              <div id="timer">00.00</div>
+              <button class="button" onclick="event.stopPropagation();reset()">RESET</button>
+              <button class="button" onclick="event.stopPropagation();openShop()">SHOP</button>
+            </div>
+            <div class="shop">
+                <div id=balance>0 C</div>
+                <button class="button" onclick="event.stopPropagation();closeShop()">
+                  <img src="images/x.png" alt="x" width="50" height="60">
+                </button>
+                <div class="grid-container">
+                	<div class="grid-element" onclick="selectThrowable('Apple')">
+                    <img src="images/apple.png" alt="throwable" width="50" height="60" onload="addThrowable('Apple', '10', '0', '5', 'images/apple.png')">
+                    <button class="button" onclick="event.stopPropagation();buyThrowable('Apple')">0 C</button>
+                  </div>
+                  <div class="grid-element" onclick="selectThrowable('Orange')">
+                    <img src="images/orange.png" alt="throwable" width="50" height="60" onload="addThrowable('Orange', '25', '50', '10', 'images/orange.png')">
+                    <button class="button" onclick="event.stopPropagation();buyThrowable('Orange')">50 C</button>
+                  </div>
+                  <div class="grid-element" onclick="selectThrowable('Pear')">
+                    <img src="images/pear.png" alt="throwable" width="50" height="60" onload="addThrowable('Pear', '50', '100', '20', 'images/pear.png')">
+                    <button class="button" onclick="event.stopPropagation();buyThrowable('Pear')">100 C</button>
+                  </div>
+                  <div class="grid-element" onclick="selectThrowable('Bowling Ball')">
+                    <img src="images/bowlball.png" alt="throwable" width="50" height="60" onload="addThrowable('Bowling Ball', '70', '250', '50', 'images/bowlball.png')">
+                    <button class="button" onclick="event.stopPropagation();buyThrowable('Bowling Ball')">250 C</button>
+                  </div>
+                  <div class="grid-element" onclick="selectThrowable('Head')">
+                    <img src="images/head.png" alt="throwable" width="50" height="60" onload="addThrowable('Head', '99', '1000', '100', 'images/head.png')">
+                    <button class="button" onclick="event.stopPropagation();buyThrowable('Head')">1000 C</button>
+                  </div>
+              	</div>
+                <div class="grid-container">
+                  <button class="button" id="upPower" onclick="event.stopPropagation();buyUpgrade('Power')">Upgrade Power (25 C)</button>
+                </div>
+                <img src="images/enter.png" alt="enter" width="100" height="60">
+            </div>
+          </div>
+        </div>
+        <script src="./js/controller.js?v=1.04"></script>
+    </body>
+</html>
